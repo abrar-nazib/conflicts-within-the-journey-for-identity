@@ -519,7 +519,7 @@ sources/3 = SubResource("TileSetAtlasSource_8cdek")
 sources/4 = SubResource("TileSetAtlasSource_nubvj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1yf5"]
-size = Vector2(6454, 71)
+size = Vector2(6710, 71)
 
 [node name="level 2" type="Node2D"]
 script = ExtResource("1_3y8t2")
@@ -827,7 +827,7 @@ Player: Get out of my Head!!!"
 [node name="gameedge" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gameedge"]
-position = Vector2(3086, 1387)
+position = Vector2(3136, 1315)
 shape = SubResource("RectangleShape2D_m1yf5")
 
 [node name="music" type="AudioStreamPlayer" parent="."]

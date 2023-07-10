@@ -38,3 +38,4 @@ text = "       Conflicts Within:
    The Journey for Identity"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
