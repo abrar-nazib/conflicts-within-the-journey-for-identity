@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs20awps0kw7q"]
+
+[ext_resource type="Texture2D" uid="uid://da53jxrelxvcr" path="res://kenney_pixel-platformer (level 1)/Tilemap/download-removebg-preview (1).png" id="1_5cnu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqhwj"]
+size = Vector2(84, 15)
+
+[sub_resource type="Animation" id="Animation_u12jt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u1tgs"]
+resource_name = "up_down"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.5001, 3, 3.0001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -343), Vector2(0, -343), Vector2(0, 0), Vector2(0, -343)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e3qnw"]
+_data = {
+"RESET": SubResource("Animation_u12jt"),
+"up_down": SubResource("Animation_u1tgs")
+}
+
+[node name="Upliftingbar" type="Node2D"]
+
+[node name="bar" type="AnimatableBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="bar"]
+position = Vector2(-0.5, -1.19209e-07)
+scale = Vector2(0.607143, 0.7)
+texture = ExtResource("1_5cnu1")
+region_enabled = true
+region_rect = Rect2(160, 110, 140, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bar"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_dqhwj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bar"]
+autoplay = "up_down"
+libraries = {
+"": SubResource("AnimationLibrary_e3qnw")
+}

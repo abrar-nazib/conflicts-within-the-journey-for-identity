@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://62ivyg4odg8n"]
+
+[ext_resource type="Script" path="res://codes/MOVE.gd" id="1_f8hhg"]
+[ext_resource type="Texture2D" uid="uid://dsmt8er65juwe" path="res://kenney_pixel-platformer (level 1)/Tilemap/tiles_packed-removebg-preview.png" id="2_gcsis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w0aj"]
+size = Vector2(40, 10)
+
+[sub_resource type="Animation" id="Animation_o8jhy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ha3cl"]
+resource_name = "move_loop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(131, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vwmw"]
+_data = {
+"RESET": SubResource("Animation_o8jhy"),
+"move_loop": SubResource("Animation_ha3cl")
+}
+
+[node name="Movingplatform" type="Node2D"]
+script = ExtResource("1_f8hhg")
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+texture = ExtResource("2_gcsis")
+region_enabled = true
+region_rect = Rect2(30, 110, 40, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_6w0aj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+autoplay = "move_loop"
+libraries = {
+"": SubResource("AnimationLibrary_2vwmw")
+}

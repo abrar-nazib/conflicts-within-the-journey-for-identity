@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://vh0kfnygn4py"]
+
+[ext_resource type="Script" path="res://codes/gems.gd" id="1_xb1tt"]
+[ext_resource type="Texture2D" uid="uid://boummiut1n2o1" path="res://coin1bgrmv.png" id="2_oukep"]
+[ext_resource type="Texture2D" uid="uid://dapr2sv0pia0q" path="res://coin3bgrmv.png" id="3_offdd"]
+[ext_resource type="Texture2D" uid="uid://bah408gniyyjr" path="res://coin2bgrmv.png" id="4_23yst"]
+[ext_resource type="AudioStream" uid="uid://b5xtdv7v4vmm4" path="res://neeeew/pickupCoin (1).wav" id="5_3bx65"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ck834"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oukep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_offdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_23yst")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xi7o"]
+radius = 9.36083
+
+[node name="Gems" type="Area2D"]
+position = Vector2(3, 2)
+monitorable = false
+script = ExtResource("1_xb1tt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.75, 1.25003)
+scale = Vector2(0.067, 0.0770001)
+sprite_frames = SubResource("SpriteFrames_ck834")
+animation = &"coin"
+frame_progress = 0.989144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.75, 1.25)
+shape = SubResource("CircleShape2D_0xi7o")
+
+[node name="coineffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3bx65")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="coineffect" to="." method="_on_coineffect_finished"]

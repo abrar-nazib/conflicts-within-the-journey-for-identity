@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn4u8x06yuqco"]
+
+[ext_resource type="Script" path="res://codes/stones.gd" id="1_se7j5"]
+[ext_resource type="Texture2D" uid="uid://b2ah2xddh7gw5" path="res://kenney_pixel-platformer (level 1)/Tilemap/download__1_-removebg-preview.png" id="2_yrl2h"]
+[ext_resource type="AudioStream" uid="uid://bg54wq2nha3o4" path="res://neeeew/pickupCoin.wav" id="3_c5xmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hl1vf"]
+radius = 15.0333
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rx08y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yrl2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Stones" type="Area2D"]
+monitorable = false
+script = ExtResource("1_se7j5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.05176e-05, 2)
+shape = SubResource("CircleShape2D_hl1vf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 3.8147e-06)
+scale = Vector2(0.442935, 0.532609)
+sprite_frames = SubResource("SpriteFrames_rx08y")
+
+[node name="stonesound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c5xmk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="stonesound" to="." method="_on_stonesound_finished"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://nlturrivdi72"]
+
+[ext_resource type="Script" path="res://codes/main_menu.gd" id="1_05i1w"]
+[ext_resource type="PackedScene" uid="uid://bqfskw5mfyrac" path="res://scenes/BG.tscn" id="1_ald6t"]
+[ext_resource type="FontFile" uid="uid://7yarqttwj03t" path="res://MAGFIRE HYENA.otf" id="3_iqjex"]
+
+[node name="main menu" type="Node2D"]
+script = ExtResource("1_05i1w")
+
+[node name="play" type="Button" parent="."]
+offset_left = 470.0
+offset_top = 299.0
+offset_right = 634.0
+offset_bottom = 379.0
+theme_override_font_sizes/font_size = 30
+text = "play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 472.0
+offset_top = 423.0
+offset_right = 639.0
+offset_bottom = 502.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="BG" parent="." instance=ExtResource("1_ald6t")]
+
+[node name="game name" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 87.0
+offset_right = 994.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0.219608, 0.0666667, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iqjex")
+theme_override_font_sizes/font_size = 60
+text = "       Conflicts Within:
+   The Journey for Identity"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

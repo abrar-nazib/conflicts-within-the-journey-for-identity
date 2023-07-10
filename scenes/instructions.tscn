@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnf5r56nm5mb2"]
+
+[ext_resource type="Script" path="res://codes/instructions.gd" id="1_fv1aw"]
+[ext_resource type="PackedScene" uid="uid://bqfskw5mfyrac" path="res://scenes/BG.tscn" id="1_ubrjt"]
+[ext_resource type="FontFile" uid="uid://bsbeoo5fxvbk5" path="res://RushTwistDemo/Rush Twist Demo.otf" id="3_v1yeo"]
+
+[node name="instructions" type="Node2D"]
+script = ExtResource("1_fv1aw")
+
+[node name="BG" parent="." instance=ExtResource("1_ubrjt")]
+
+[node name="start" type="Button" parent="."]
+offset_left = 523.0
+offset_top = 483.0
+offset_right = 637.0
+offset_bottom = 548.0
+theme_override_font_sizes/font_size = 27
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 77.0
+offset_right = 1051.0
+offset_bottom = 487.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_v1yeo")
+theme_override_font_sizes/font_size = 30
+text = "                                                                             INSTRUCTIONS
+
+This is a single player platformer 2D game...To move right 
+press \"D\" and move left press \"A\" ..To jump press \"Spacebar\".The game is a shooting game aim
+ using  mouse and fire using \"Mouse left button\"..The bullets bounce back when the character shoots.
+
+The player just woke up and found himself in a lost realm.He finds five persons talking to him
+ but can't figure out how to get out of this realm.It seems like Even he himself is against him and yet 
+he has to go on..So what the journey holds for him?"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

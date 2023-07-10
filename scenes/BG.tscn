@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqfskw5mfyrac"]
+
+[ext_resource type="Script" path="res://codes/BG.gd" id="1_145r0"]
+[ext_resource type="Texture2D" uid="uid://dewskhxkap0h2" path="res://kenney_pixel-platformer (level 1)/Background/background_0011.png" id="1_e7rt1"]
+[ext_resource type="Texture2D" uid="uid://cjlr4djd6sg48" path="res://biziii.jpg" id="4_bl3ux"]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_145r0")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Background0011" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(556.5, 322.25)
+scale = Vector2(46.4583, 26.8125)
+texture = ExtResource("1_e7rt1")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1113.5, 0)
+
+[node name="Background0011" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(556.5, 515)
+scale = Vector2(46.4583, 77.1667)
+texture = ExtResource("1_e7rt1")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2140, 0)
+
+[node name="Biziii" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(2079, 498)
+scale = Vector2(1, 1.10067)
+texture = ExtResource("4_bl3ux")

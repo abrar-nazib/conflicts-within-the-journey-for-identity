@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://brirmmm2ccbkw"]
+
+[ext_resource type="Texture2D" uid="uid://dyjiig0s8n36a" path="res://kenney_pixel-platformer-blocks(level 2)/Tilemap/0fc84f0c3d4c39f-removebg-preview.png" id="1_iplft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr263"]
+size = Vector2(35, 50.875)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwm4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iplft")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 11.4375)
+shape = SubResource("RectangleShape2D_mr263")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 17)
+scale = Vector2(0.303, 0.2355)
+sprite_frames = SubResource("SpriteFrames_bwm4e")
+frame_progress = 0.488686
